@@ -5,7 +5,7 @@
 	- **Decryption Block** : Design of DES Decryption module, with 115 Stages pipeline modules
 	- **Memory Block** : Single port Dual Channel Memory with 8k memory Size
 
-### **[Verification](https://github.com/shreejnanesh/Manipal_codeRepo/tree/writebranch/SemisterTwo/Project/DES_Verification)**
+### **[Verification](https://github.com/shreejnanesh/DES_Hardware_Accelerator/tree/main/DES_Verification)**
 1. **Verification using System Verilog**
 	- **Encryption Block** : Verification of DES Encryption module without coverage.
 	- **Decryption Block** : Verification of DES Decryption module without coverage.
