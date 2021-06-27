@@ -1,4 +1,5 @@
-**[DES_Hardware_Accelerator](https://github.com/shreejnanesh/DES_Hardware_Accelerator)**
+# **[DES_Hardware_Accelerator](https://github.com/shreejnanesh/DES_Hardware_Accelerator)**
+
 # Design and Testbench
 
 - Design Summary
