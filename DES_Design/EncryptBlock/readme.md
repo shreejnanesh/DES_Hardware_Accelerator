@@ -1,6 +1,6 @@
 # **[DES_Hardware_Accelerator](https://github.com/shreejnanesh/DES_Hardware_Accelerator)**
 
-# Design and Testbench
+## Design and Testbench
 
 - Design Summary
 	- 115 Pipeline stage
