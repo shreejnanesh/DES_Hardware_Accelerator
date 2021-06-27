@@ -1,4 +1,4 @@
-# **[Manipal_codeRepo](https://github.com/shreejnanesh/Manipal_codeRepo)**
+# **[DES_Hardware_Accelerator](https://github.com/shreejnanesh/DES_Hardware_Accelerator)**
 
 ###UVM ENVIRONMENT DEC
 
