@@ -1,6 +1,6 @@
-# **[Manipal_codeRepo](https://github.com/shreejnanesh/Manipal_codeRepo)**
+# **DES_Hardware_Accelerator**
 
-### **[Design:](https://github.com/shreejnanesh/Manipal_codeRepo/tree/writebranch/SemisterTwo/Project/DES_Design)**
+### **[Design:](https://github.com/shreejnanesh/DES_Hardware_Accelerator/tree/main/DES_Design)**
 1.	- **Encryption Block** : Design of DES Encryption module, with 115 Stages pipeline modules
 	- **Decryption Block** : Design of DES Decryption module, with 115 Stages pipeline modules
 	- **Memory Block** : Single port Dual Channel Memory with 8k memory Size
