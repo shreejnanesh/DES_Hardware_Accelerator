@@ -1,0 +1,8 @@
+var g_data = {
+c108:[4,'address',[],,'107',1,1,'CovPort','105','/top_sv_unit/dram_cov',[[],[0,'1','3',,'low'],[0,'1','6',,'med'],[0,'1','1',,'high']],[]],
+c109:[4,'data',[],,'107',1,1,'CovPort','105','/top_sv_unit/dram_cov',[[],[0,'1','1',,'low'],[0,'1','6',,'med'],[0,'1','3',,'high']],[]],
+c154:[4,'address',[],,'153',1,1,'CovPort','151','work.top_sv_unit::dram_cov',[[],[0,'1','3',,'low'],[0,'1','6',,'med'],[0,'1','1',,'high']],[]],
+c155:[4,'data',[],,'153',1,1,'CovPort','151','work.top_sv_unit::dram_cov',[[],[0,'1','1',,'low'],[0,'1','6',,'med'],[0,'1','3',,'high']],[]],
+dummyEnd:0
+};
+processCovergroupsData(g_data);

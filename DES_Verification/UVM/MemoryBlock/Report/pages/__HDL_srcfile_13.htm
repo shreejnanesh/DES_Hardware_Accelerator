@@ -1,0 +1,71 @@
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>Questa Coverage Report</title>
+  <link rel="StyleSheet" media="screen" href="../css/hdl2html.css"/>
+</head>
+<body id="hdl2html">
+  <tt>
+<pre>
+<a name="1"><q-n>     1  </q-n></a><q-w>class</q-w> dram_sb <q-w>extends</q-w> uvm_scoreboard;
+<a name="2"><q-n>     2  </q-n></a>`uvm_component_utils(dram_sb);
+<a name="3"><q-n>     3  </q-n></a>
+<a name="4"><q-n>     4  </q-n></a>dram_seq_item pkt,pkt1;
+<a name="5"><q-n>     5  </q-n></a><q-w>bit</q-w> [63:0] mem[0:63];
+<a name="6"><q-n>     6  </q-n></a>uvm_tlm_analysis_fifo #(dram_seq_item)ip_fifo;
+<a name="7"><q-n>     7  </q-n></a>uvm_tlm_analysis_fifo #(dram_seq_item)op_fifo;
+<a name="8"><q-n>     8  </q-n></a>
+<a name="9"><q-n>     9  </q-n></a><q-w>function</q-w> <q-w>new</q-w>(<q-w>string</q-w> name=<q-l>"dram_sb"</q-l>,uvm_component parent);
+<a name="10"><q-n>     10  </q-n></a><q-w>super</q-w>.<q-w>new</q-w>(name,parent);
+<a name="11"><q-n>     11  </q-n></a>ip_fifo=<q-w>new</q-w>(<q-l>"ip_fifo"</q-l>,<q-w>this</q-w>);
+<a name="12"><q-n>     12  </q-n></a>op_fifo=<q-w>new</q-w>(<q-l>"op_fifo"</q-l>,<q-w>this</q-w>);
+<a name="13"><q-n>     13  </q-n></a>
+<a name="14"><q-n>     14  </q-n></a><q-w>endfunction</q-w>
+<a name="15"><q-n>     15  </q-n></a>
+<a name="16"><q-n>     16  </q-n></a><q-w>virtual</q-w> <q-w>function</q-w> <q-w>void</q-w> build_phase(uvm_phase phase);
+<a name="17"><q-n>     17  </q-n></a><q-w>super</q-w>.build_phase(phase);
+<a name="18"><q-n>     18  </q-n></a>pkt=dram_seq_item::type_id::create(<q-l>"pkt"</q-l>,<q-w>this</q-w>);
+<a name="19"><q-n>     19  </q-n></a>pkt1=dram_seq_item::type_id::create(<q-l>"pkt1"</q-l>,<q-w>this</q-w>);
+<a name="20"><q-n>     20  </q-n></a><q-w>endfunction</q-w>
+<a name="21"><q-n>     21  </q-n></a>
+<a name="22"><q-n>     22  </q-n></a>
+<a name="23"><q-n>     23  </q-n></a><q-w>task</q-w> run_phase(uvm_phase phase);
+<a name="24"><q-n>     24  </q-n></a><q-w>forever</q-w>
+<a name="25"><q-n>     25  </q-n></a><q-w>begin</q-w>
+<a name="26"><q-n>     26  </q-n></a>
+<a name="27"><q-n>     27  </q-n></a><q-w>fork</q-w>
+<a name="28"><q-n>     28  </q-n></a>ip_fifo.get(pkt);
+<a name="29"><q-n>     29  </q-n></a>`uvm_info(<q-l>"SB"</q-l>,<q-l>"TRANSACTIONS FROM MON1"</q-l>,UVM_NONE);
+<a name="30"><q-n>     30  </q-n></a>$display(<q-l>"sb data_in=%d,add=%d"</q-l>,pkt.data_in,pkt.add);
+<a name="31"><q-n>     31  </q-n></a>op_fifo.get(pkt1);
+<a name="32"><q-n>     32  </q-n></a>`uvm_info(<q-l>"SB"</q-l>,<q-l>"TRANSACTIONS FROM MON2"</q-l>,UVM_NONE);
+<a name="33"><q-n>     33  </q-n></a>$display(<q-l>"sb data_out=%d,add=%d"</q-l>,pkt1.data_out,pkt1.add);
+<a name="34"><q-n>     34  </q-n></a>
+<a name="35"><q-n>     35  </q-n></a><q-w>join</q-w>
+<a name="36"><q-n>     36  </q-n></a><q-w>if</q-w>(pkt.wr==0)
+<a name="37"><q-n>     37  </q-n></a><q-w>begin</q-w>
+<a name="38"><q-n>     38  </q-n></a>mem[pkt.add]=pkt.data_in;
+<a name="39"><q-n>     39  </q-n></a><q-w>end</q-w>
+<a name="40"><q-n>     40  </q-n></a><q-w>if</q-w>(pkt1.data_out==mem[pkt1.add])
+<a name="41"><q-n>     41  </q-n></a>   <q-w>begin</q-w>
+<a name="42"><q-n>     42  </q-n></a>`uvm_info(<q-l>"SB MATCHED"</q-l>,$sformatf(<q-l>"DATA pkt.data0_in=%d,pkt1.data1_out=%d"</q-l>,mem[pkt1.add],pkt1.data_out),UVM_NONE);
+<a name="43"><q-n>     43  </q-n></a><q-m>//$display("SB:::::data matched pkt1.en=%d,pkt1.count=%d,pkt.en=%d",pkt1.count);</q-m>
+<a name="44"><q-n>     44  </q-n></a>   <q-w>end</q-w>
+<a name="45"><q-n>     45  </q-n></a><q-w>else</q-w>
+<a name="46"><q-n>     46  </q-n></a>   <q-w>begin</q-w>
+<a name="47"><q-n>     47  </q-n></a>`uvm_info(<q-l>"SB NOT MATCHED"</q-l>,$sformatf(<q-l>"DATA pkt.data0_in=%d,pkt1.data1_out=%d"</q-l>,mem[pkt1.add],pkt1.data_out),UVM_NONE);
+<a name="48"><q-n>     48  </q-n></a> <q-m>//$display("SB:::::data not matched pkt1.en=%d,pkt1.count=%d,pkt.en=%d",pkt1.count);</q-m>
+<a name="49"><q-n>     49  </q-n></a>    <q-w>end</q-w> 
+<a name="50"><q-n>     50  </q-n></a>
+<a name="51"><q-n>     51  </q-n></a><q-w>end</q-w>
+<a name="52"><q-n>     52  </q-n></a><q-w>endtask</q-w>
+<a name="53"><q-n>     53  </q-n></a>
+<a name="54"><q-n>     54  </q-n></a><q-w>endclass</q-w>
+<a name="55"><q-n>     55  </q-n></a>
+</pre>
+</tt>
+
+  
+</body>
+</html>

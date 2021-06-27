@@ -1,0 +1,59 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2018 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+Version: 18.10-p003_1, built Thu Jun 07 23:53:27 IST 2018
+Options: 
+Date:    Wed Mar 10 18:46:56 2021
+Host:    vlsi-09 (x86_64 w/Linux 2.6.32-696.20.1.el6.x86_64) (6cores*6cpus*1physical cpu*Intel(R) Core(TM) i5-8400 CPU @ 2.80GHz 9216KB) (7929776KB)
+OS:      Red Hat Enterprise Linux Server release 6.9 (Santiago)
+
+Checking out license: Genus_Synthesis
+
+Loading tool scripts...
+
+Finished loading tool scripts (3 seconds elapsed).
+
+WARNING: This version of the tool is 1006 days old.
+@genus:root: 1> set_db init_lib_search_path ./
+  Setting attribute of root '/': 'init_lib_search_path' = ./
+1 ./
+@genus:root: 2> set_db init_hdl_search_path ./
+  Setting attribute of root '/': 'init_hdl_search_path' = ./
+1 ./
+@genus:root: 3> set_db library fast.lib
+
+Threads Configured:3
+
+  Message Summary for Library fast.lib:
+  *************************************
+  Could not find an attribute in the library. [LBR-436]: 2184
+  Missing a function attribute in the output pin definition. [LBR-518]: 1
+  Missing library level attribute. [LBR-516]: 1
+  *************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.100000, 0.000000) in library 'fast.lib'.
+        : The nominal operating condition represents either the nominal PVT values if specified in the library source, or the default PVT values (1.0, 1.0, 1.0).
+  Setting attribute of root '/': 'library' = fast.lib
+1 fast.lib
+@genus:root: 4> gui_show
+@genus:root: 5> read_hdl -sv top.sv
+@genus:root: 6> elaborate
+  Library has 324 usable logic and 128 usable sequential lib-cells.
+Info    : Elaborating Design. [ELAB-1]
+        : Elaborating top-level block 'DES' from file './top.sv'.
+Warning : Undriven signal detected. [ELABUTL-125]
+        : Undriven bits of signal 'temp2' in module 'DES' in file './top.sv' on line 9, column 34.
+Info    : Done Elaborating Design. [ELAB-3]
+        : Done elaborating 'DES'.
+Checking for analog nets...
+Check completed for analog nets.
+Checking for source RTL...
+Check completed for source RTL.
+UM:  flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:             9             27                                      elaborate
+design:DES
+@genus:root: 7> exit
+Normal exit.

@@ -1,0 +1,5 @@
+var g_db_data = [
+{dummy:0},
+{name:'CovPort',f:1,type:6,id:107,tb:'6',h:'6',m:'0',hp:'100.00%',cov:['100.00%','G'],g:'100.00%',gp:['100.00%','G'],opts:[[],['merge_instance','auto(true)']],lnk:'__HDL_srcfile_11.htm#8',hdlPath:'/top_sv_unit/dram_cov',parent:'105'},
+{name:'CovPort',f:1,type:6,id:153,tb:'6',h:'6',m:'0',hp:'100.00%',cov:['100.00%','G'],g:'100.00%',gp:['100.00%','G'],opts:[[],['merge_instance','true']],lnk:'__HDL_srcfile_11.htm#8',hdlPath:'work.top_sv_unit::dram_cov',parent:'151'}];
+processConsCovergroupsData(g_db_data);

@@ -1,0 +1,24 @@
+var g_data = {
+a1072:{
+scopes:[{s:'992',b:'1',val:'enc_pkg'},{val:'enc_seq'},{s:'1069',b:'0',val:'body'},{val:'#anonblk#206137207#10#4#'},{link:'z.htm?f=0&s=1072',val:'#ublk#206137207#10'}]
+,assertions:[{dummy:0},{cr:'c',c:'g',lnk:'__HDL_srcfile_7.htm#13',z:'immed__13',fc:'Gr',pc:'Gr',h0:'0',h1:'1'}
+],
+},
+a1090:{
+scopes:[{s:'992',b:'1',val:'enc_pkg'},{val:'enc_scoreboard'},{link:'z.htm?f=0&s=1090',val:'write'}]
+,assertions:[{dummy:0},{cr:'c',c:'g',lnk:'__HDL_srcfile_9.htm#22',z:'immed__22',fc:'Gr',pc:'Gr',h0:'0',h1:'1'}
+],
+},
+a1410:{
+scopes:[{s:'1330',b:'1',val:'work.enc_pkg'},{val:'enc_seq'},{s:'1407',b:'0',val:'body'},{val:'#anonblk#206137207#10#4#'},{link:'z.htm?f=0&s=1410',val:'#ublk#206137207#10'}]
+,assertions:[{dummy:0},{cr:'c',c:'g',lnk:'__HDL_srcfile_7.htm#13',z:'immed__13',fc:'Gr',pc:'Gr',h0:'0',h1:'1'}
+],
+},
+a1428:{
+scopes:[{s:'1330',b:'1',val:'work.enc_pkg'},{val:'enc_scoreboard'},{link:'z.htm?f=0&s=1428',val:'write'}]
+,assertions:[{dummy:0},{cr:'c',c:'g',lnk:'__HDL_srcfile_9.htm#22',z:'immed__22',fc:'Gr',pc:'Gr',h0:'0',h1:'1'}
+],
+},
+dummyEnd:0
+};
+processAssertionsData(g_data,1);

@@ -1,0 +1,16 @@
+-html
+-htmldir
+C:/Users/jnane/Documents/GitHub/Manipal_codeRepo/SemisterTwo/Project/DES_Verification/UVM/MemoryBlock/Report
+-source
+-details
+-assert
+-directive
+-cvg
+-code
+bcefst
+-noframes
+-verbose
+-threshL
+50
+-threshH
+90

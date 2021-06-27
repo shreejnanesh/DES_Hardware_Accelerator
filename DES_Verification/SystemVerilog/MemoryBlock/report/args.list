@@ -1,0 +1,16 @@
+-html
+-htmldir
+C:/Users/jnane/Downloads/Documents/Manipal Files/Sem2/Project/Code/Questa/UVM/Project_ver_SV_Dram/report
+-source
+-details
+-assert
+-directive
+-cvg
+-code
+bcefst
+-noframes
+-verbose
+-threshL
+50
+-threshH
+90

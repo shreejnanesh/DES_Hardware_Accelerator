@@ -1,0 +1,5 @@
+var g_db_data = [
+{dummy:0},
+{name:'mycov',f:1,type:6,id:1099,tb:'3006',h:'3000',m:'6',hp:'99.80%',cov:['99.80%','G'],g:'100.00%',gp:['99.80%','G'],lnk:'__HDL_srcfile_10.htm#13',hdlPath:'/enc_pkg/enc_coverage_subscriber',parent:'1094'},
+{name:'mycov',f:1,type:6,id:1437,tb:'3006',h:'3000',m:'6',hp:'99.80%',cov:['99.80%','G'],g:'100.00%',gp:['99.80%','G'],lnk:'__HDL_srcfile_10.htm#13',hdlPath:'work.enc_pkg::enc_coverage_subscriber',parent:'1432'}];
+processConsCovergroupsData(g_db_data);

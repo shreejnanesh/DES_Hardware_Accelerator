@@ -1,0 +1,5 @@
+dec_pkg.sv
+dutdec.sv
+grDesDec.sv
+interface.sv
+top.sv

@@ -1,0 +1,6 @@
+var g_data = {'dummy':null,
+'5':'dec_pkg.sv',
+'3':'dutdec.sv',
+'4':'grDesDec.sv',
+'1':'interface.sv',
+'2':'top.sv'};

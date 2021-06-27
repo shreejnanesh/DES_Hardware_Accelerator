@@ -1,0 +1,10 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-sv
+top.sv
+test_tb.sv
+-access
+rw
+-gui

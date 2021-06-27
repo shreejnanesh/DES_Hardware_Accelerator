@@ -1,0 +1,301 @@
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>Questa Coverage Report</title>
+  <link rel="StyleSheet" media="screen" href="../css/hdl2html.css"/>
+</head>
+<body id="hdl2html">
+  <tt>
+<pre>
+<a name="1"><q-n>     1  </q-n></a><q-w>package</q-w> dec_pkg;
+<a name="2"><q-n>     2  </q-n></a>
+<a name="3"><q-n>     3  </q-n></a>	<q-w>import</q-w> uvm_pkg::*;
+<a name="4"><q-n>     4  </q-n></a>	`<q-i>include</q-w> <q-l>"<a href="__HDL_srcfile_4.htm">grDesDec.sv</a>"</q-l>
+<a name="5"><q-n>     5  </q-n></a>	
+<a name="6"><q-n>     6  </q-n></a>	<q-w>class</q-w> dec_seq_item <q-w>extends</q-w> uvm_sequence_item;		
+<a name="7"><q-n>     7  </q-n></a>		<q-w>rand</q-w> <q-w>logic</q-w> [63:0] key;		
+<a name="8"><q-n>     8  </q-n></a>		<q-w>rand</q-w> <q-w>logic</q-w> [63:0] cipher;	
+<a name="9"><q-n>     9  </q-n></a>			 <q-w>logic</q-w> [63:0] decrypt;
+<a name="10"><q-n>     10  </q-n></a>			 
+<a name="11"><q-n>     11  </q-n></a>		`uvm_object_utils_begin(dec_seq_item)
+<a name="12"><q-n>     12  </q-n></a>      		`uvm_field_int(cipher, UVM_ALL_ON)
+<a name="13"><q-n>     13  </q-n></a>      		`uvm_field_int(key, UVM_ALL_ON)
+<a name="14"><q-n>     14  </q-n></a>   		`uvm_object_utils_end
+<a name="15"><q-n>     15  </q-n></a>
+<a name="16"><q-n>     16  </q-n></a>   		<q-w>function</q-w> <q-w>new</q-w>(<q-w>string</q-w> name=<q-l>""</q-l>);
+<a name="17"><q-n>     17  </q-n></a>   			<q-w>super</q-w>.<q-w>new</q-w>(name);
+<a name="18"><q-n>     18  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="19"><q-n>     19  </q-n></a>
+<a name="20"><q-n>     20  </q-n></a>   		<q-m>//constraint transaction_a {</q-m>
+<a name="21"><q-n>     21  </q-n></a>   		<q-m>//	cipher &gt; 0; key &gt; 0;</q-m>
+<a name="22"><q-n>     22  </q-n></a>   		<q-m>//}</q-m>
+<a name="23"><q-n>     23  </q-n></a>   	<q-w>endclass</q-w>
+<a name="24"><q-n>     24  </q-n></a>
+<a name="25"><q-n>     25  </q-n></a>   	<q-w>class</q-w> dec_driver <q-w>extends</q-w> uvm_driver #(dec_seq_item);
+<a name="26"><q-n>     26  </q-n></a>
+<a name="27"><q-n>     27  </q-n></a>   		<q-w>virtual</q-w> dec_interface dec_vif;
+<a name="28"><q-n>     28  </q-n></a>   		`uvm_component_utils(dec_driver)
+<a name="29"><q-n>     29  </q-n></a>
+<a name="30"><q-n>     30  </q-n></a>   		<q-w>function</q-w> <q-w>new</q-w>(<q-w>string</q-w> name=<q-l>""</q-l>, uvm_component parent);
+<a name="31"><q-n>     31  </q-n></a>   			<q-w>super</q-w>.<q-w>new</q-w>(name,parent);
+<a name="32"><q-n>     32  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="33"><q-n>     33  </q-n></a>
+<a name="34"><q-n>     34  </q-n></a>   		<q-w>virtual</q-w> <q-w>function</q-w> <q-w>void</q-w> build_phase(uvm_phase phase);
+<a name="35"><q-n>     35  </q-n></a>   			<q-w>if</q-w>(!(uvm_config_db#(<q-w>virtual</q-w> dec_interface)::get(<q-w>this</q-w>,<q-l>""</q-l>,<q-l>"dec_interface"</q-l>,dec_vif)) ) <q-w>begin</q-w>
+<a name="36"><q-n>     36  </q-n></a>   				`uvm_fatal(<q-l>"FATAL"</q-l>, <q-l>"Can't get interface dec_vif\n"</q-l>);
+<a name="37"><q-n>     37  </q-n></a>   			<q-w>end</q-w>
+<a name="38"><q-n>     38  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="39"><q-n>     39  </q-n></a>
+<a name="40"><q-n>     40  </q-n></a>   		<q-w>virtual</q-w> <q-w>function</q-w> <q-w>void</q-w> connect_phase(uvm_phase phase);
+<a name="41"><q-n>     41  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="42"><q-n>     42  </q-n></a>
+<a name="43"><q-n>     43  </q-n></a>   		<q-w>virtual</q-w> <q-w>function</q-w> <q-w>void</q-w> end_of_elaboration_phase(uvm_phase phase);
+<a name="44"><q-n>     44  </q-n></a>     		uvm_top.print_topology();
+<a name="45"><q-n>     45  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="46"><q-n>     46  </q-n></a>
+<a name="47"><q-n>     47  </q-n></a>   		<q-w>virtual</q-w> <q-w>function</q-w> <q-w>void</q-w> start_of_simulation_phase(uvm_phase phase);
+<a name="48"><q-n>     48  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="49"><q-n>     49  </q-n></a>
+<a name="50"><q-n>     50  </q-n></a>   		<q-w>virtual</q-w> <q-w>task</q-w> run_phase(uvm_phase phase);
+<a name="51"><q-n>     51  </q-n></a>        dec_seq_item itm;
+<a name="52"><q-n>     52  </q-n></a>        <q-w>while</q-w>(1) <q-w>begin</q-w>
+<a name="53"><q-n>     53  </q-n></a>           itm = dec_seq_item::type_id::create(<q-l>"itm"</q-l>);
+<a name="54"><q-n>     54  </q-n></a>           seq_item_port.get_next_item(itm);
+<a name="55"><q-n>     55  </q-n></a>           @(dec_vif.dcb);
+<a name="56"><q-n>     56  </q-n></a>           dec_vif.cipher = itm.cipher;
+<a name="57"><q-n>     57  </q-n></a>           dec_vif.key = itm.key;
+<a name="58"><q-n>     58  </q-n></a>           `uvm_info(<q-l>"DRV"</q-l>, $sformatf(<q-l>"1: DEBUG: @time %0t, Cipher=%0h, Key=%0h"</q-l>, $<q-w>time</q-w>, dec_vif.cipher, dec_vif.key), UVM_HIGH);
+<a name="59"><q-n>     59  </q-n></a>           seq_item_port.item_done();
+<a name="60"><q-n>     60  </q-n></a>        <q-w>end</q-w>
+<a name="61"><q-n>     61  </q-n></a>   		<q-w>endtask</q-w>
+<a name="62"><q-n>     62  </q-n></a>   	<q-w>endclass</q-w>
+<a name="63"><q-n>     63  </q-n></a>
+<a name="64"><q-n>     64  </q-n></a>   	<q-m>//Sequence</q-m>
+<a name="65"><q-n>     65  </q-n></a>   	<q-w>class</q-w> dec_seq <q-w>extends</q-w> uvm_sequence #(dec_seq_item);
+<a name="66"><q-n>     66  </q-n></a>   		`uvm_object_utils(dec_seq)
+<a name="67"><q-n>     67  </q-n></a>
+<a name="68"><q-n>     68  </q-n></a>   		<q-w>function</q-w> <q-w>new</q-w>(<q-w>string</q-w> name=<q-l>""</q-l>);
+<a name="69"><q-n>     69  </q-n></a>   			<q-w>super</q-w>.<q-w>new</q-w>(name);
+<a name="70"><q-n>     70  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="71"><q-n>     71  </q-n></a>
+<a name="72"><q-n>     72  </q-n></a>   		<q-w>task</q-w> body();
+<a name="73"><q-n>     73  </q-n></a>   			dec_seq_item itm;
+<a name="74"><q-n>     74  </q-n></a>   			<q-w>for</q-w>(<q-w>int</q-w> i=0;i&lt;10000;i++) <q-w>begin</q-w>
+<a name="75"><q-n>     75  </q-n></a>   				itm=dec_seq_item::type_id::create(<q-l>"itm"</q-l>);
+<a name="76"><q-n>     76  </q-n></a>   				start_item(itm);
+<a name="77"><q-n>     77  </q-n></a>   				<q-w>assert</q-w>(itm.randomize());
+<a name="78"><q-n>     78  </q-n></a>   				`uvm_info(<q-l>"SEQ"</q-l>,$sformatf(<q-l>"2: DEBUG: @time %0t,Seqitem %0d generated =&gt; cipher=%0h, key=%0h"</q-l>, $<q-w>time</q-w>, i, itm.cipher, itm.key), UVM_HIGH);
+<a name="79"><q-n>     79  </q-n></a>   				finish_item(itm);
+<a name="80"><q-n>     80  </q-n></a>   			<q-w>end</q-w>
+<a name="81"><q-n>     81  </q-n></a>   		<q-w>endtask</q-w>
+<a name="82"><q-n>     82  </q-n></a>   	<q-w>endclass</q-w>
+<a name="83"><q-n>     83  </q-n></a>
+<a name="84"><q-n>     84  </q-n></a>   	<q-m>//Monitor </q-m>
+<a name="85"><q-n>     85  </q-n></a>
+<a name="86"><q-n>     86  </q-n></a>   	<q-w>class</q-w> dec_monitor <q-w>extends</q-w> uvm_monitor;
+<a name="87"><q-n>     87  </q-n></a>   		uvm_analysis_port#(dec_seq_item) ap;
+<a name="88"><q-n>     88  </q-n></a>   		<q-w>virtual</q-w> dec_interface dec_vif;
+<a name="89"><q-n>     89  </q-n></a>
+<a name="90"><q-n>     90  </q-n></a>   		`uvm_component_utils(dec_monitor)
+<a name="91"><q-n>     91  </q-n></a>
+<a name="92"><q-n>     92  </q-n></a>   		<q-w>function</q-w> <q-w>new</q-w>(<q-w>string</q-w> name=<q-l>""</q-l>, uvm_component parent);
+<a name="93"><q-n>     93  </q-n></a>   			<q-w>super</q-w>.<q-w>new</q-w>(name,parent);
+<a name="94"><q-n>     94  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="95"><q-n>     95  </q-n></a>
+<a name="96"><q-n>     96  </q-n></a>   		<q-w>virtual</q-w> <q-w>function</q-w> <q-w>void</q-w> build_phase(uvm_phase phase);
+<a name="97"><q-n>     97  </q-n></a>   			<q-w>if</q-w>(!(uvm_config_db#(<q-w>virtual</q-w> dec_interface)::get(<q-w>this</q-w>,<q-l>""</q-l>,<q-l>"dec_interface"</q-l>,dec_vif))) <q-w>begin</q-w>
+<a name="98"><q-n>     98  </q-n></a>   				`uvm_fatal(<q-l>"FATAL"</q-l>, <q-l>"Cant get interface dec_interface\n"</q-l>);
+<a name="99"><q-n>     99  </q-n></a>   			<q-w>end</q-w>
+<a name="100"><q-n>     100  </q-n></a>   			ap = <q-w>new</q-w>(<q-l>"Decrypt_monitor_analysis_port"</q-l>,<q-w>this</q-w>);
+<a name="101"><q-n>     101  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="102"><q-n>     102  </q-n></a>
+<a name="103"><q-n>     103  </q-n></a>   		<q-w>task</q-w> run_phase(uvm_phase phase);
+<a name="104"><q-n>     104  </q-n></a>   			dec_seq_item itm;
+<a name="105"><q-n>     105  </q-n></a>   			<q-w>while</q-w>(1) <q-w>begin</q-w>
+<a name="106"><q-n>     106  </q-n></a>   				itm = dec_seq_item::type_id::create(<q-l>"itm"</q-l>);
+<a name="107"><q-n>     107  </q-n></a>   				@(dec_vif.mcb);
+<a name="108"><q-n>     108  </q-n></a>   				@(<q-a>negedge</q-w> dec_vif.clk);
+<a name="109"><q-n>     109  </q-n></a>   				itm.cipher = dec_vif.cipher;
+<a name="110"><q-n>     110  </q-n></a>   				itm.key = dec_vif.key;
+<a name="111"><q-n>     111  </q-n></a>   				itm.decrypt = dec_vif.decrypt;
+<a name="112"><q-n>     112  </q-n></a>   				`uvm_info(<q-l>"MON"</q-l>, $sformatf(<q-l>"3: DEBUG: @time %0t, cipher=%0h, key=%0h, decrypt=%0h"</q-l>, $<q-w>time</q-w>, dec_vif.cipher, dec_vif.key, dec_vif.decrypt), UVM_HIGH);
+<a name="113"><q-n>     113  </q-n></a>   				ap.write(itm);
+<a name="114"><q-n>     114  </q-n></a>   			<q-w>end</q-w>
+<a name="115"><q-n>     115  </q-n></a>   		<q-w>endtask</q-w>
+<a name="116"><q-n>     116  </q-n></a>   	<q-w>endclass</q-w>
+<a name="117"><q-n>     117  </q-n></a>
+<a name="118"><q-n>     118  </q-n></a>   	<q-m>//Scoreboard</q-m>
+<a name="119"><q-n>     119  </q-n></a>
+<a name="120"><q-n>     120  </q-n></a>   	<q-w>class</q-w> dec_scoreboard <q-w>extends</q-w> uvm_scoreboard;
+<a name="121"><q-n>     121  </q-n></a>   		uvm_analysis_imp #(dec_seq_item, dec_scoreboard) dec_item_collected_export;
+<a name="122"><q-n>     122  </q-n></a>
+<a name="123"><q-n>     123  </q-n></a>   		
+<a name="124"><q-n>     124  </q-n></a>
+<a name="125"><q-n>     125  </q-n></a>   		GRDESDEC gr_decr;
+<a name="126"><q-n>     126  </q-n></a>		`uvm_component_utils(dec_scoreboard)
+<a name="127"><q-n>     127  </q-n></a>   		<q-w>function</q-w> <q-w>new</q-w>(<q-w>string</q-w> name=<q-l>""</q-l>, uvm_component parent);
+<a name="128"><q-n>     128  </q-n></a>   			<q-w>super</q-w>.<q-w>new</q-w>(name,parent);
+<a name="129"><q-n>     129  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="130"><q-n>     130  </q-n></a>
+<a name="131"><q-n>     131  </q-n></a>   		<q-w>virtual</q-w> <q-w>function</q-w> <q-w>void</q-w> build_phase(uvm_phase phase);
+<a name="132"><q-n>     132  </q-n></a>   			dec_item_collected_export = <q-w>new</q-w>(<q-l>"dec_item_collected_export"</q-l>,<q-w>this</q-w>);
+<a name="133"><q-n>     133  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="134"><q-n>     134  </q-n></a>
+<a name="135"><q-n>     135  </q-n></a>   		<q-w>virtual</q-w> <q-w>function</q-w> <q-w>void</q-w> write(dec_seq_item itm);
+<a name="136"><q-n>     136  </q-n></a>   			`uvm_info(<q-l>"SCBD"</q-l>, $sformatf(<q-l>"@time %0t, printing cipher=%0h, key=%0h, decrypt=%0h"</q-l>, $<q-w>time</q-w>, itm.cipher, itm.key, itm.decrypt), UVM_LOW);
+<a name="137"><q-n>     137  </q-n></a>   			gr_decr = <q-w>new</q-w>();
+<a name="138"><q-n>     138  </q-n></a>			<q-m>//Immediate assertion that acts as checker</q-m>
+<a name="139"><q-n>     139  </q-n></a>   			<q-m>//Insert a assert here that checks for DES Decrypt</q-m>
+<a name="140"><q-n>     140  </q-n></a>   			<q-w>assert</q-w>(gr_decr.decryption(itm.key,itm.cipher) == itm.decrypt)
+<a name="141"><q-n>     141  </q-n></a>   			<q-w>else</q-w>
+<a name="142"><q-n>     142  </q-n></a>   				`uvm_error(<q-l>"MISMATCH"</q-l>, $sformatf(<q-l>"@time %0t, cipher=%0h, key=%0h, decrypt=%0h"</q-l>,$<q-w>time</q-w>, itm.cipher, itm.key, itm.decrypt));
+<a name="143"><q-n>     143  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="144"><q-n>     144  </q-n></a>   	<q-w>endclass</q-w>
+<a name="145"><q-n>     145  </q-n></a>
+<a name="146"><q-n>     146  </q-n></a>   	<q-m>//Coverage</q-m>
+<a name="147"><q-n>     147  </q-n></a>
+<a name="148"><q-n>     148  </q-n></a>   	<q-w>class</q-w> dec_coverage_subscriber <q-w>extends</q-w> uvm_subscriber #(dec_seq_item);
+<a name="149"><q-n>     149  </q-n></a>
+<a name="150"><q-n>     150  </q-n></a>   		uvm_analysis_imp #(dec_seq_item, dec_coverage_subscriber) dec_item_collected_export;
+<a name="151"><q-n>     151  </q-n></a>   		`uvm_component_utils(dec_coverage_subscriber)
+<a name="152"><q-n>     152  </q-n></a>
+<a name="153"><q-n>     153  </q-n></a>   		dec_seq_item myitem;
+<a name="154"><q-n>     154  </q-n></a>
+<a name="155"><q-n>     155  </q-n></a>   		<q-w>time</q-w> <q-v>min</q-w> = 1;
+<a name="156"><q-n>     156  </q-n></a>		<q-w>time</q-w> max = 2**64-2;
+<a name="157"><q-n>     157  </q-n></a>	  
+<a name="158"><q-n>     158  </q-n></a>	  <q-w>covergroup</q-w> mycov;
+<a name="159"><q-n>     159  </q-n></a>	  cipher: <q-w>coverpoint</q-w> myitem.cipher {
+<a name="160"><q-n>     160  </q-n></a>	   	<q-w>bins</q-w> ciphermin = {<q-v>min</q-w>};
+<a name="161"><q-n>     161  </q-n></a>	  	<q-w>bins</q-w> cipherinter[1000] = {[<q-v>min</q-w>+1:max-1]};
+<a name="162"><q-n>     162  </q-n></a>	  	<q-w>bins</q-w> ciphermax = {max};
+<a name="163"><q-n>     163  </q-n></a>	   }
+<a name="164"><q-n>     164  </q-n></a>	  key: <q-w>coverpoint</q-w> myitem.key {
+<a name="165"><q-n>     165  </q-n></a>	    <q-w>bins</q-w> keymin = {<q-v>min</q-w>};
+<a name="166"><q-n>     166  </q-n></a>	  	<q-w>bins</q-w> keyinter[1000] = {[<q-v>min</q-w>+1:max-1]};
+<a name="167"><q-n>     167  </q-n></a>	  	<q-w>bins</q-w> keymax = {max};
+<a name="168"><q-n>     168  </q-n></a>	  }
+<a name="169"><q-n>     169  </q-n></a>	  decrypt: <q-w>coverpoint</q-w> myitem.decrypt {
+<a name="170"><q-n>     170  </q-n></a>	    <q-w>bins</q-w> decryptmin = {<q-v>min</q-w>};
+<a name="171"><q-n>     171  </q-n></a>	  	<q-w>bins</q-w> decryptinter[1000] = {[<q-v>min</q-w>+1:max-1]};
+<a name="172"><q-n>     172  </q-n></a>	  	<q-w>bins</q-w> decryptmax = {max};
+<a name="173"><q-n>     173  </q-n></a>	  }
+<a name="174"><q-n>     174  </q-n></a>	  <q-w>endgroup</q-w> : mycov 
+<a name="175"><q-n>     175  </q-n></a>	  
+<a name="176"><q-n>     176  </q-n></a><q-m>/*	  bit ptr[192];</q-m>
+<a name="177"><q-n>     177  </q-n></a><q-m>		</q-m>
+<a name="178"><q-n>     178  </q-n></a><q-m>   		covergroup mycov;</q-m>
+<a name="179"><q-n>     179  </q-n></a><q-m>   			cipher: coverpoint myitem.cipher {</q-m>
+<a name="180"><q-n>     180  </q-n></a><q-m>   				bins ptr = {0,1};</q-m>
+<a name="181"><q-n>     181  </q-n></a><q-m>   			}</q-m>
+<a name="182"><q-n>     182  </q-n></a><q-m>   			key: coverpoint myitem.key {</q-m>
+<a name="183"><q-n>     183  </q-n></a><q-m>   				bins ptr = {0,1};</q-m>
+<a name="184"><q-n>     184  </q-n></a><q-m>   			}</q-m>
+<a name="185"><q-n>     185  </q-n></a><q-m>   			decrypt: coverpoint myitem.decrypt {</q-m>
+<a name="186"><q-n>     186  </q-n></a><q-m>   				bins ptr = {0,1};</q-m>
+<a name="187"><q-n>     187  </q-n></a><q-m>   			}</q-m>
+<a name="188"><q-n>     188  </q-n></a><q-m>   		endgroup */</q-m>
+<a name="189"><q-n>     189  </q-n></a>
+<a name="190"><q-n>     190  </q-n></a>   		<q-w>function</q-w> <q-w>new</q-w>(<q-w>string</q-w> name=<q-l>""</q-l>,uvm_component parent);
+<a name="191"><q-n>     191  </q-n></a>   			<q-w>super</q-w>.<q-w>new</q-w>(name,parent);
+<a name="192"><q-n>     192  </q-n></a>   			mycov = <q-w>new</q-w>();
+<a name="193"><q-n>     193  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="194"><q-n>     194  </q-n></a>
+<a name="195"><q-n>     195  </q-n></a>   		<q-w>virtual</q-w> <q-w>function</q-w> <q-w>void</q-w> build_phase(uvm_phase phase);
+<a name="196"><q-n>     196  </q-n></a>   			dec_item_collected_export = <q-w>new</q-w>(<q-l>"dec_item_collected_export"</q-l>,<q-w>this</q-w>);
+<a name="197"><q-n>     197  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="198"><q-n>     198  </q-n></a>
+<a name="199"><q-n>     199  </q-n></a>   		<q-w>function</q-w> <q-w>void</q-w> write(dec_seq_item t);
+<a name="200"><q-n>     200  </q-n></a>   			myitem = t;
+<a name="201"><q-n>     201  </q-n></a>   			`uvm_info(<q-l>"COVSB"</q-l>, $sformatf(<q-l>"@time %0t, printing cipher=%0h, key=%0h, decrypt=%0h"</q-l>, $<q-w>time</q-w>, myitem.cipher, myitem.key, myitem.decrypt), UVM_HIGH);
+<a name="202"><q-n>     202  </q-n></a>   			mycov.sample();
+<a name="203"><q-n>     203  </q-n></a>   			`uvm_info(<q-l>"COVSB"</q-l>, $sformatf(<q-l>"@time %0t, Coverage%3.2f percent\n"</q-l>, $<q-w>time</q-w>, mycov.get_coverage()), UVM_MEDIUM);
+<a name="204"><q-n>     204  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="205"><q-n>     205  </q-n></a>
+<a name="206"><q-n>     206  </q-n></a>   	<q-w>endclass</q-w>
+<a name="207"><q-n>     207  </q-n></a>
+<a name="208"><q-n>     208  </q-n></a>   	<q-m>//Agent</q-m>
+<a name="209"><q-n>     209  </q-n></a>
+<a name="210"><q-n>     210  </q-n></a>   	<q-w>class</q-w> dec_agent <q-w>extends</q-w> uvm_agent;
+<a name="211"><q-n>     211  </q-n></a>   		uvm_sequencer #(dec_seq_item) dec_seqr;
+<a name="212"><q-n>     212  </q-n></a>   		dec_driver 						dec_drvr;
+<a name="213"><q-n>     213  </q-n></a>   		dec_monitor						dec_mon;
+<a name="214"><q-n>     214  </q-n></a>   		dec_scoreboard					dec_scbd;
+<a name="215"><q-n>     215  </q-n></a>   		dec_coverage_subscriber			dec_cov;
+<a name="216"><q-n>     216  </q-n></a>   		uvm_active_passive_enum 		is_active;
+<a name="217"><q-n>     217  </q-n></a>
+<a name="218"><q-n>     218  </q-n></a>   		`uvm_component_utils(dec_agent)
+<a name="219"><q-n>     219  </q-n></a>
+<a name="220"><q-n>     220  </q-n></a>   		<q-w>function</q-w> <q-w>new</q-w>(<q-w>string</q-w> name=<q-l>""</q-l>,uvm_component parent);
+<a name="221"><q-n>     221  </q-n></a>   			<q-w>super</q-w>.<q-w>new</q-w>(name,parent);
+<a name="222"><q-n>     222  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="223"><q-n>     223  </q-n></a>
+<a name="224"><q-n>     224  </q-n></a>   		<q-w>virtual</q-w> <q-w>function</q-w> <q-w>void</q-w> build_phase(uvm_phase phase);
+<a name="225"><q-n>     225  </q-n></a>   			<q-w>if</q-w>(!(uvm_config_db#(uvm_active_passive_enum)::get(<q-w>this</q-w>,<q-l>""</q-l>,<q-l>"active_passive"</q-l>, is_active))) <q-w>begin</q-w>
+<a name="226"><q-n>     226  </q-n></a>   				`uvm_fatal(<q-l>"FATAL"</q-l>, <q-l>"Cant get active_passive for agent\n"</q-l>);
+<a name="227"><q-n>     227  </q-n></a>   			<q-w>end</q-w>
+<a name="228"><q-n>     228  </q-n></a>   			<q-w>if</q-w>(is_active == UVM_ACTIVE) <q-w>begin</q-w>
+<a name="229"><q-n>     229  </q-n></a>   				dec_seqr = uvm_sequencer#(dec_seq_item)::type_id::create(<q-l>"dec_seqr"</q-l>,<q-w>this</q-w>);
+<a name="230"><q-n>     230  </q-n></a>   				dec_drvr = dec_driver::type_id::create(<q-l>"dec_drvr"</q-l>,<q-w>this</q-w>);
+<a name="231"><q-n>     231  </q-n></a>   			<q-w>end</q-w>
+<a name="232"><q-n>     232  </q-n></a>   			dec_mon = dec_monitor::type_id::create(<q-l>"dec_mon"</q-l>, <q-w>this</q-w>);
+<a name="233"><q-n>     233  </q-n></a>   			dec_scbd = dec_scoreboard::type_id::create(<q-l>"dec_scbd"</q-l>,<q-w>this</q-w>);
+<a name="234"><q-n>     234  </q-n></a>   			dec_cov = dec_coverage_subscriber::type_id::create(<q-l>"dec_cov"</q-l>,<q-w>this</q-w>);
+<a name="235"><q-n>     235  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="236"><q-n>     236  </q-n></a>
+<a name="237"><q-n>     237  </q-n></a>   		<q-w>virtual</q-w> <q-w>function</q-w> <q-w>void</q-w> connect_phase(uvm_phase phase);
+<a name="238"><q-n>     238  </q-n></a>      		<q-w>if</q-w> (is_active == UVM_ACTIVE) <q-w>begin</q-w>
+<a name="239"><q-n>     239  </q-n></a>         		dec_drvr.seq_item_port.connect(dec_seqr.seq_item_export);
+<a name="240"><q-n>     240  </q-n></a>      		<q-w>end</q-w>
+<a name="241"><q-n>     241  </q-n></a>         	dec_mon.ap.connect(dec_scbd.dec_item_collected_export);
+<a name="242"><q-n>     242  </q-n></a>         	dec_mon.ap.connect(dec_cov.dec_item_collected_export);
+<a name="243"><q-n>     243  </q-n></a>   		<q-w>endfunction</q-w>
+<a name="244"><q-n>     244  </q-n></a>
+<a name="245"><q-n>     245  </q-n></a>	<q-w>endclass</q-w>
+<a name="246"><q-n>     246  </q-n></a>
+<a name="247"><q-n>     247  </q-n></a><q-m>// Environment </q-m>
+<a name="248"><q-n>     248  </q-n></a>
+<a name="249"><q-n>     249  </q-n></a>	<q-w>class</q-w> dec_env <q-w>extends</q-w> uvm_env;
+<a name="250"><q-n>     250  </q-n></a>   		dec_agent dec_agent_h;
+<a name="251"><q-n>     251  </q-n></a>
+<a name="252"><q-n>     252  </q-n></a>   		`uvm_component_utils(dec_env)
+<a name="253"><q-n>     253  </q-n></a>
+<a name="254"><q-n>     254  </q-n></a>	   <q-w>function</q-w> <q-w>new</q-w>(<q-w>string</q-w> name=<q-l>""</q-l>, uvm_component parent);
+<a name="255"><q-n>     255  </q-n></a>	      <q-w>super</q-w>.<q-w>new</q-w>(name, parent);
+<a name="256"><q-n>     256  </q-n></a>	      dec_agent_h = dec_agent::type_id::create(<q-l>"dec_agent_h"</q-l>, <q-w>this</q-w>);
+<a name="257"><q-n>     257  </q-n></a>	      uvm_config_db#(uvm_active_passive_enum)::set(<q-w>null</q-w>, <q-l>"*"</q-l>, <q-l>"active_passive"</q-l>, UVM_ACTIVE);
+<a name="258"><q-n>     258  </q-n></a>	   <q-w>endfunction</q-w>
+<a name="259"><q-n>     259  </q-n></a>	   
+<a name="260"><q-n>     260  </q-n></a>	<q-w>endclass</q-w>
+<a name="261"><q-n>     261  </q-n></a>
+<a name="262"><q-n>     262  </q-n></a>	<q-m>// Test </q-m>
+<a name="263"><q-n>     263  </q-n></a>	<q-w>class</q-w> dec_test <q-w>extends</q-w> uvm_test;
+<a name="264"><q-n>     264  </q-n></a>	    dec_seq seq_h;
+<a name="265"><q-n>     265  </q-n></a>	    dec_env env_h;
+<a name="266"><q-n>     266  </q-n></a>	   `uvm_component_utils(dec_test)
+<a name="267"><q-n>     267  </q-n></a>
+<a name="268"><q-n>     268  </q-n></a>	   <q-w>function</q-w> <q-w>new</q-w>(<q-w>string</q-w> name=<q-l>""</q-l>, uvm_component parent);
+<a name="269"><q-n>     269  </q-n></a>	      <q-w>super</q-w>.<q-w>new</q-w>(name, parent);
+<a name="270"><q-n>     270  </q-n></a>	      seq_h = dec_seq::type_id::create(<q-l>"seq_h"</q-l>, <q-w>this</q-w>);
+<a name="271"><q-n>     271  </q-n></a>	      env_h = dec_env::type_id::create(<q-l>"env_h"</q-l>, <q-w>this</q-w>);
+<a name="272"><q-n>     272  </q-n></a>	   <q-w>endfunction</q-w>
+<a name="273"><q-n>     273  </q-n></a>	   
+<a name="274"><q-n>     274  </q-n></a>	   <q-w>task</q-w> run_phase(uvm_phase phase);
+<a name="275"><q-n>     275  </q-n></a>	      phase.raise_objection(<q-w>this</q-w>, <q-l>"Raised objection in test"</q-l>);
+<a name="276"><q-n>     276  </q-n></a>	      seq_h.start(env_h.dec_agent_h.dec_seqr);
+<a name="277"><q-n>     277  </q-n></a>	      phase.drop_objection(<q-w>this</q-w>, <q-l>"Dropped objection in test"</q-l>);
+<a name="278"><q-n>     278  </q-n></a>	   <q-w>endtask</q-w>
+<a name="279"><q-n>     279  </q-n></a>	   
+<a name="280"><q-n>     280  </q-n></a>	<q-w>endclass</q-w>
+<a name="281"><q-n>     281  </q-n></a>	
+<a name="282"><q-n>     282  </q-n></a><q-w>endpackage</q-w> <q-m>// Contains all the testbench components</q-m>
+<a name="283"><q-n>     283  </q-n></a>
+<a name="284"><q-n>     284  </q-n></a>
+<a name="285"><q-n>     285  </q-n></a>
+</pre>
+</tt>
+
+  
+</body>
+</html>

@@ -1,0 +1,26 @@
+var g_data = {
+g1159:[{dummy:0},
+{name:'mycov',f:1,type:1,id:1164,tb:'3006',h:'2999',m:'7',hp:'99.76%',cov:['99.76%','G'],g:'100.00%',gp:['99.76%','G'],lnk:'__HDL_srcfile_5.htm#158',parent:'1159'},
+{name:'\\/dec_pkg::dec_coverage_subscriber::mycov ',f:1,type:2,id:1168,tb:'3006',h:'2999',m:'7',hp:'99.76%',cov:['99.76%','G'],g:'100.00%',gp:['99.76%','G'],lnk:'__HDL_srcfile_5.htm#158',cvg:'mycov',parent:'1164'}],
+c1164:{name:'mycov',type:1,pHash:'1159',pPath:'/dec_pkg/dec_coverage_subscriber',totals:[3006,2999,'99.76%','G',0,0,'0.00%','R'],cvp:[{dummy:0},
+{name:'cipher',f:1,type:4,id:1165,tb:'1002',h:'1000',m:'2',hp:'99.80%',cov:['99.80%','G'],g:'100.00%',gp:['99.80%','G'],lnk:'__HDL_srcfile_5.htm#159',parent:'1164'},
+{name:'key',f:1,type:4,id:1166,tb:'1002',h:'999',m:'3',hp:'99.70%',cov:['99.70%','G'],g:'100.00%',gp:['99.70%','G'],lnk:'__HDL_srcfile_5.htm#164',parent:'1164'},
+{name:'decrypt',f:1,type:4,id:1167,tb:'1002',h:'1000',m:'2',hp:'99.80%',cov:['99.80%','G'],g:'100.00%',gp:['99.80%','G'],lnk:'__HDL_srcfile_5.htm#169',parent:'1164'}],crx:[{dummy:0}]},
+c1168:{name:'\\/dec_pkg::dec_coverage_subscriber::mycov ',type:2,pHash:'1159',pPath:'/dec_pkg/dec_coverage_subscriber',totals:[3006,2999,'99.76%','G',0,0,'0.00%','R'],cvp:[{dummy:0},
+{name:'cipher',f:1,type:4,id:1169,tb:'1002',h:'1000',m:'2',hp:'99.80%',cov:['99.80%','G'],g:'100.00%',gp:['99.80%','G'],hasb:1,lnk:'__HDL_srcfile_5.htm#159',parent:'1168'},
+{name:'key',f:1,type:4,id:1170,tb:'1002',h:'999',m:'3',hp:'99.70%',cov:['99.70%','G'],g:'100.00%',gp:['99.70%','G'],hasb:1,lnk:'__HDL_srcfile_5.htm#164',parent:'1168'},
+{name:'decrypt',f:1,type:4,id:1171,tb:'1002',h:'1000',m:'2',hp:'99.80%',cov:['99.80%','G'],g:'100.00%',gp:['99.80%','G'],hasb:1,lnk:'__HDL_srcfile_5.htm#169',parent:'1168'}],crx:[{dummy:0}]},
+g1562:[{dummy:0},
+{name:'mycov',f:1,type:1,id:1567,tb:'3006',h:'2999',m:'7',hp:'99.76%',cov:['99.76%','G'],g:'100.00%',gp:['99.76%','G'],lnk:'__HDL_srcfile_5.htm#158',parent:'1562'},
+{name:'\\/dec_pkg::dec_coverage_subscriber::mycov ',f:1,type:2,id:1571,tb:'3006',h:'2999',m:'7',hp:'99.76%',cov:['99.76%','G'],g:'100.00%',gp:['99.76%','G'],lnk:'__HDL_srcfile_5.htm#158',cvg:'mycov',parent:'1567'}],
+c1567:{name:'mycov',type:1,pHash:'1562',pPath:'work.dec_pkg::dec_coverage_subscriber',totals:[3006,2999,'99.76%','G',0,0,'0.00%','R'],cvp:[{dummy:0},
+{name:'cipher',f:1,type:4,id:1568,tb:'1002',h:'1000',m:'2',hp:'99.80%',cov:['99.80%','G'],g:'100.00%',gp:['99.80%','G'],lnk:'__HDL_srcfile_5.htm#159',parent:'1567'},
+{name:'key',f:1,type:4,id:1569,tb:'1002',h:'999',m:'3',hp:'99.70%',cov:['99.70%','G'],g:'100.00%',gp:['99.70%','G'],lnk:'__HDL_srcfile_5.htm#164',parent:'1567'},
+{name:'decrypt',f:1,type:4,id:1570,tb:'1002',h:'1000',m:'2',hp:'99.80%',cov:['99.80%','G'],g:'100.00%',gp:['99.80%','G'],lnk:'__HDL_srcfile_5.htm#169',parent:'1567'}],crx:[{dummy:0}]},
+c1571:{name:'\\/dec_pkg::dec_coverage_subscriber::mycov ',type:2,pHash:'1562',pPath:'work.dec_pkg::dec_coverage_subscriber',totals:[3006,2999,'99.76%','G',0,0,'0.00%','R'],cvp:[{dummy:0},
+{name:'cipher',f:1,type:4,id:1572,tb:'1002',h:'1000',m:'2',hp:'99.80%',cov:['99.80%','G'],g:'100.00%',gp:['99.80%','G'],hasb:1,lnk:'__HDL_srcfile_5.htm#159',parent:'1571'},
+{name:'key',f:1,type:4,id:1573,tb:'1002',h:'999',m:'3',hp:'99.70%',cov:['99.70%','G'],g:'100.00%',gp:['99.70%','G'],hasb:1,lnk:'__HDL_srcfile_5.htm#164',parent:'1571'},
+{name:'decrypt',f:1,type:4,id:1574,tb:'1002',h:'1000',m:'2',hp:'99.80%',cov:['99.80%','G'],g:'100.00%',gp:['99.80%','G'],hasb:1,lnk:'__HDL_srcfile_5.htm#169',parent:'1571'}],crx:[{dummy:0}]},
+dummyEnd:0
+};
+processCovergroupsData(g_data);

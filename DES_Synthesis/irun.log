@@ -1,0 +1,82 @@
+irun(64): 15.20-s069: (c) Copyright 1995-2019 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s069: Started on Mar 11, 2021 at 16:08:15 IST
+irun
+	-sv
+	top.sv
+	test_tb.sv
+	-access rw
+	-gui
+	-s
+Recompiling... reason: file './Decrypt.sv' is newer than expected.
+	expected: Thu Mar 11 16:03:16 2021
+	actual:   Thu Mar 11 16:05:25 2021
+file: top.sv
+	module worklib.fiestal_round:sv
+		errors: 0, warnings: 0
+	module worklib.encrypt:sv
+		errors: 0, warnings: 0
+module fiestal_round(clk,in,key_in,level,out);
+                   |
+ncvlog: *W,RECOME (./Fiestal.sv,2|19): recompiling design unit worklib.fiestal_round:sv.
+	First compiled from line 2 of Fiestal.sv.
+(`include file: ./Fiestal.sv line 2, `include file: Decrypt.sv line 2, file: top.sv line 3)
+	module worklib.fiestal_round:sv
+		errors: 0, warnings: 1
+	module worklib.decrypt:sv
+		errors: 0, warnings: 0
+	module worklib.DES:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		tb
+ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.DES:sv <0x24d6fa3d>
+			streams:   3, words:  1027
+		worklib.decrypt:sv <0x58befea1>
+			streams:  70, words: 44537
+		worklib.encrypt:sv <0x762a3eef>
+			streams:  71, words: 46933
+		worklib.fiestal_round:sv <0x58efed7a>
+			streams:  14, words: 18980
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                 36       5
+		Registers:             1754     328
+		Scalar wires:             2       -
+		Vectored wires:         171       -
+		Always blocks:           71       9
+		Initial blocks:           2       2
+		Cont. assignments:        1       6
+		Pseudo assignments:     136     136
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.tb:sv
+ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+ncsim> 
+ncsim> source /cad/INCISIVE152/tools/inca/files/ncsimrc
+ncsim> 
+-------------------------------------
+Relinquished control to SimVision...
+# Restoring simulation environment...
+ncsim> input -quiet .reinvoke.sim
+ncsim> file delete .reinvoke.sim
+ncsim> run
+ncsim: *W,DFUSE: $dumpfile trace.vcd is already in use (VCD file).
+            File: ./test_tb.sv, line = 32, pos = 9
+           Scope: tb
+            Time: 0 FS + 0
+
+ncsim: *W,VCDFUSE: Default VCD file name verilog.dump already in use (VCD file).
+            Time: 0 FS + 3
+
+Simulation complete via $finish(1) at time 353 NS + 0
+./test_tb.sv:27 		#350 $finish;
+ncsim> ^C
+ncsim> exit
+...Regained control from SimVision
+-------------------------------------
+TOOL:	irun(64)	15.20-s069: Exiting on Mar 11, 2021 at 16:08:38 IST  (total: 00:00:23)

@@ -1,0 +1,19 @@
+set_db init_lib_search_path ./
+set_db init_hdl_search_path ./
+set_db library fast.lib
+gui_show
+read_hdl -sv top.sv
+elaborate
+read_vcd -vcd_scope DES trace.vcd
+read_sdc design.sdc
+report_timing
+
+syn_generic
+syn_map
+syn_opt
+
+
+
+write_hdl >  Design_nl.sv
+
+report_timing

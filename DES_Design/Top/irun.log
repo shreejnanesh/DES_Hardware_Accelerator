@@ -1,0 +1,67 @@
+irun: 10.20-s100: (c) Copyright 1995-2011 Cadence Design Systems, Inc.
+TOOL:	irun	10.20-s100: Started on Jun 11, 2021 at 21:27:44 +06
+irun
+	-sv
+	top.sv
+	test_tb.sv
+	-access rw
+	-gui
+file: top.sv
+	module worklib.fiestal_round:sv
+		errors: 0, warnings: 0
+module fiestal_round(input clk,
+                   |
+ncvlog: *W,RECOME (Fiestal.sv,2|19): recompiling design unit worklib.fiestal_round:sv.
+	First compiled from line 2 of Fiestal.sv.
+(`include file: Fiestal.sv line 2, `include file: Decrypt.sv line 2, file: top.sv line 2)
+	module worklib.fiestal_round:sv
+		errors: 0, warnings: 1
+	module worklib.memory:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		tb
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.DES:sv <0x706a77cf>
+			streams:   9, words:  1653
+		worklib.decrypt:sv <0x410498b0>
+			streams:  71, words: 39888
+		worklib.encrypt:sv <0x104f2512>
+			streams:  71, words: 42027
+		worklib.fiestal_round:sv <0x76bfcd47>
+			streams:  14, words: 16506
+		worklib.memory:sv <0x0238fcb2>
+			streams:   5, words:  3032
+		worklib.tb:sv <0x632950bf>
+			streams:  13, words:  4405
+	Loading native compiled code:     .................... Done
+	Building instance specific data structures.
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                 37       6
+		Registers:             1769     343
+		Scalar wires:             4       -
+		Vectored wires:         182       -
+		Always blocks:           72      10
+		Initial blocks:           4       4
+		Cont. assignments:        0       8
+		Pseudo assignments:     147     147
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.tb:sv
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> source /home/buet/cadence/installs/INCISIV102/tools/inca/files/ncsimrc
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm tb.Decrypt tb.Encrypt tb.add0 tb.add1 tb.clk tb.en tb.i tb.key_in tb.msg_in tb.wr0 tb.wr1
+Created probe 1
+ncsim> run
+Simulation interrupted at 0 FS + 0
+ncsim> run
+Simulation complete via $finish(1) at time 350 NS + 0
+./test_tb.sv:64         #350 $finish;
+ncsim> TOOL:	irun	10.20-s100: Exiting on Jun 11, 2021 at 21:28:02 +06  (total: 00:00:18)

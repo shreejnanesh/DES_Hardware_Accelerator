@@ -1,0 +1,34 @@
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>Questa Coverage Report</title>
+  <link rel="StyleSheet" media="screen" href="../css/hdl2html.css"/>
+</head>
+<body id="hdl2html">
+  <tt>
+<pre>
+<a name="1"><q-n>     1  </q-n></a>`<q-i>include</q-w> <q-l>"<a href="__HDL_srcfile_12.htm">env.sv</a>"</q-l>
+<a name="2"><q-n>     2  </q-n></a>`<q-i>include</q-w> <q-l>"cfg.sv"</q-l>
+<a name="3"><q-n>     3  </q-n></a>
+<a name="4"><q-n>     4  </q-n></a><q-w>program</q-w> dram_tb(dram_if.tb infc);
+<a name="5"><q-n>     5  </q-n></a>configuration cfg;
+<a name="6"><q-n>     6  </q-n></a>dram_env env;
+<a name="7"><q-n>     7  </q-n></a><q-w>initial</q-w>
+<a name="8"><q-n>     8  </q-n></a><q-w>begin</q-w>
+<a name="9"><q-n>     9  </q-n></a>cfg=<q-w>new</q-w>();
+<a name="10"><q-n>     10  </q-n></a>cfg.num_txns=10;
+<a name="11"><q-n>     11  </q-n></a>cfg.cmd=WR_RD;
+<a name="12"><q-n>     12  </q-n></a>cfg.addr1=random;
+<a name="13"><q-n>     13  </q-n></a>cfg.data1=random1;
+<a name="14"><q-n>     14  </q-n></a>env=<q-w>new</q-w>(infc,cfg);
+<a name="15"><q-n>     15  </q-n></a>env.env_run();
+<a name="16"><q-n>     16  </q-n></a><q-w>end</q-w>
+<a name="17"><q-n>     17  </q-n></a><q-w>endprogram</q-w>
+<a name="18"><q-n>     18  </q-n></a>
+</pre>
+</tt>
+
+  
+</body>
+</html>
